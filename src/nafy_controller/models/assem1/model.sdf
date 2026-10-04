@@ -1,0 +1,560 @@
+<sdf version='1.11'>
+  <model name='Assem1'>
+    <link name='base_link'>
+      <inertial>
+        <pose>0.0040303351550426041 -0.00016075430195749689 0.37410347715765341 0 0 0</pose>
+        <mass>7.6705740138792979</mass>
+        <inertia>
+          <ixx>0.31652355109864122</ixx>
+          <ixy>1.8967872329956341e-07</ixy>
+          <ixz>-0.00116679389339272</ixz>
+          <iyy>0.28127684860822949</iyy>
+          <iyz>-4.5212037427513583e-05</iyz>
+          <izz>0.2414859908537739</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+      <sensor name="tb3_imu" type="imu">
+        <always_on>true</always_on>
+        <update_rate>100</update_rate>
+        <topic>imu</topic>
+        <imu>
+          <angular_velocity>
+            <x><noise type="gaussian"><mean>0.0</mean><stddev>2e-4</stddev></noise></x>
+            <y><noise type="gaussian"><mean>0.0</mean><stddev>2e-4</stddev></noise></y>
+            <z><noise type="gaussian"><mean>0.0</mean><stddev>2e-4</stddev></noise></z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x><noise type="gaussian"><mean>0.0</mean><stddev>1.7e-2</stddev></noise></x>
+            <y><noise type="gaussian"><mean>0.0</mean><stddev>1.7e-2</stddev></noise></y>
+            <z><noise type="gaussian"><mean>0.0</mean><stddev>1.7e-2</stddev></noise></z>
+          </linear_acceleration>
+        </imu>
+      </sensor>
+    </link>
+    <joint name='joint_1' type='revolute'>
+      <pose relative_to='base_link'>0.26300000000004098 0.327500000000013 0 1.5707963267949003 -1.6213662157696211e-19 0.010889578205252298</pose>
+      <parent>base_link</parent>
+      <child>horizontal_rot1</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <effort>300</effort>
+          <velocity>3</velocity>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.2</damping>
+          <friction>0.05</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='horizontal_rot1'>
+      <pose relative_to='joint_1'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.0264208443635311 0.0124915891690655 -0.000107994476847839 0 0 0</pose>
+        <mass>0.0162856480579259</mass>
+        <inertia>
+          <ixx>1.00290661257103e-05</ixx>
+          <ixy>1.0961595985375701e-06</ixy>
+          <ixz>-3.7842637186911799e-08</ixz>
+          <iyy>1.49482083733998e-05</iyy>
+          <iyz>1.13941184793553e-08</iyz>
+          <izz>1.35771578342545e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='horizontal_rot1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/horizontal_rot1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='horizontal_rot1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/horizontal_rot1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_2' type='revolute'>
+      <pose relative_to='horizontal_rot1'>0.039997628365157099 -0.0154991056418489 0.00043557451947506798 -0.0032925109758439402 0.00050965843372353947 0.30714849802921002</pose>
+      <parent>horizontal_rot1</parent>
+      <child>vertical_rot1</child>
+      <axis>
+        <xyz>-0.0108893629868767 0 0.99994070912916599</xyz>
+        <limit>
+          <effort>300</effort>
+          <velocity>3</velocity>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.2</damping>
+          <friction>0.05</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='vertical_rot1'>
+      <pose relative_to='joint_2'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>2.48476485886773e-07 6.2517794274796798e-09 -2.2816922693014201e-05 0 0 0</pose>
+        <mass>0.081518779724096199</mass>
+        <inertia>
+          <ixx>4.1396699447279997e-05</ixx>
+          <ixy>-3.24848216503477e-10</ixy>
+          <ixz>-3.3088832034249599e-07</ixz>
+          <iyy>4.1396725695037701e-05</iyy>
+          <iyz>-2.8171920693807901e-12</iyz>
+          <izz>7.1777674313114299e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='vertical_rot1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/vertical_rot1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='vertical_rot1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/vertical_rot1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_3' type='revolute'>
+      <pose relative_to='base_link'>0.26300000000003898 -0.32749999999998902 0 1.5707963267949003 -1.6213662157696211e-19 0.010889578205252298</pose>
+      <parent>base_link</parent>
+      <child>horizontal_rot2</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <effort>300</effort>
+          <velocity>3</velocity>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.2</damping>
+          <friction>0.05</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='horizontal_rot2'>
+      <pose relative_to='joint_3'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.026420844160457799 0.012491589505039801 -0.00010799447906451 0 0 0</pose>
+        <mass>0.016285648057930702</mass>
+        <inertia>
+          <ixx>1.00290643483525e-05</ixx>
+          <ixy>1.0961577765657701e-06</ixy>
+          <ixz>-3.7842697781914301e-08</ixz>
+          <iyy>1.49482101518738e-05</iyy>
+          <iyz>1.13941742785996e-08</iyz>
+          <izz>1.3577157833149999e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='horizontal_rot2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/horizontal_rot2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='horizontal_rot2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/horizontal_rot2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_4' type='revolute'>
+      <pose relative_to='horizontal_rot2'>0.039997628365166599 -0.0154991056418602 0.00043557451947506798 0.010553279541266796 0.013578060943540199 -1.8201947101115099</pose>
+      <parent>horizontal_rot2</parent>
+      <child>vertical_rot2</child>
+      <axis>
+        <xyz>-0.0108893629868838 0 0.99994070912916599</xyz>
+        <limit>
+          <effort>300</effort>
+          <velocity>3</velocity>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <damping>0.2</damping>
+          <friction>0.05</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='vertical_rot2'>
+      <pose relative_to='joint_4'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>2.4847648605330598e-07 6.2517793164573699e-09 -2.28169226976771e-05 0 0 0</pose>
+        <mass>0.081518779724094506</mass>
+        <inertia>
+          <ixx>4.1396699447278702e-05</ixx>
+          <ixy>-3.2484821665763699e-10</ixy>
+          <ixz>-3.30888320342634e-07</ixz>
+          <iyy>4.1396725695036603e-05</iyy>
+          <iyz>-2.8171912935449301e-12</iyz>
+          <izz>7.1777674313112496e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='vertical_rot2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/vertical_rot2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='vertical_rot2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/vertical_rot2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_5' type='revolute'>
+      <pose relative_to='base_link'>-0.175000000000021 0.24250000000000499 0.024499999999998599 -0.031310066162912285 6.7467392033564575e-19 1.5707963267949003</pose>
+      <parent>base_link</parent>
+      <child>big_wheel1</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <effort>300</effort>
+          <velocity>3</velocity>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='big_wheel1'>
+      <pose relative_to='joint_5'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.080130010416042702 1.17034645308323e-08 -5.9394429031689498e-06 0 0 0</pose>
+        <mass>1.3103889578274801</mass>
+        <inertia>
+          <ixx>0.00378342151421735</ixx>
+          <ixy>-2.4545216818955e-09</ixy>
+          <ixz>-4.6676855880254699e-07</ixz>
+          <iyy>0.00241866329287584</iyy>
+          <iyz>-9.1087897044917601e-14</iyz>
+          <izz>0.0024186884286251801</izz>
+        </inertia>
+      </inertial>
+      <collision name='big_wheel1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/big_wheel1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='big_wheel1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/big_wheel1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_6' type='revolute'>
+      <pose relative_to='base_link'>-0.175000000000022 -0.242499999999995 0.024499999999999598 0.056959309469116003 -1.270297219812016e-18 -1.5707963267949003</pose>
+      <parent>base_link</parent>
+      <child>big_wheel2</child>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <effort>300</effort>
+          <velocity>3</velocity>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='big_wheel2'>
+      <pose relative_to='joint_6'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.080130040838805303 7.2558851149651096e-09 -5.9394434626103302e-06 0 0 0</pose>
+        <mass>1.31038883438627</mass>
+        <inertia>
+          <ixx>0.0037834238636955601</ixx>
+          <ixy>-8.0750272964801099e-10</ixy>
+          <ixz>-4.6676879558195098e-07</ixz>
+          <iyy>0.0024186622093405998</iyy>
+          <iyz>-5.64724048773835e-14</iyz>
+          <izz>0.0024186873450900599</izz>
+        </inertia>
+      </inertial>
+      <collision name='big_wheel2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/big_wheel2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='big_wheel2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/big_wheel2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <link name="base_footprint"/>
+    <joint name="base_joint" type="fixed">
+      <parent>base_footprint</parent>
+      <child>base_link</child>
+      <pose relative_to="base_footprint">0 0 0 0 0 0</pose>
+    </joint>
+    <link name="camera">
+      <pose relative_to="joint_7">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.0115561554755023 0.000011008713381111 -0.000135954325541032 0 0 0</pose>
+        <mass>0.0398923950503806</mass>
+        <inertia>
+          <ixx>2.63413640635645E-05</ixx>
+          <ixy>-6.62466921778793E-09</ixy>
+          <ixz>1.81971963264903E-08</ixz>
+          <iyy>2.85032438177403E-06</iyy>
+          <iyz>-1.55423031862008E-10</iyz>
+          <izz>2.59721957527212E-05</izz>
+        </inertia>
+      </inertial>
+      <visual name="camera_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/camera.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+      <sensor name="d435i_rgb" type="camera">
+        <always_on>true</always_on>
+        <visualize>false</visualize>
+        <update_rate>15</update_rate>
+        <topic>camera/image_raw</topic>
+        <gz_frame_id>camera</gz_frame_id>
+        <camera name="d435i_color">
+          <camera_info_topic>camera/camera_info</camera_info_topic>
+          <horizontal_fov>1.2113</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+      </sensor>
+      <sensor name="d435i_depth" type="depth_camera">
+        <always_on>true</always_on>
+        <visualize>false</visualize>
+        <update_rate>15</update_rate>
+        <topic>camera/depth_image</topic>
+        <gz_frame_id>camera</gz_frame_id>
+        <camera name="d435i_depth">
+          <horizontal_fov>1.5184</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R_FLOAT32</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>10.0</far>
+          </clip>
+        </camera>
+      </sensor>
+    </link>
+    <joint name="joint_7" type="fixed">
+      <parent>base_link</parent>
+      <child>camera</child>
+      <pose relative_to="base_link">0.018 0.0000274 1.1908 0 0 0</pose>
+    </joint>
+    <link name="lidar">
+      <pose relative_to="joint_8">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.0135567743230772 -0.00026272003152461 0.0021348835502677 0 0 0</pose>
+        <mass>0.0730842405077276</mass>
+        <inertia>
+          <ixx>1.95788122710189E-05</ixx>
+          <ixy>-6.2493554728148E-08</ixy>
+          <ixz>-4.28327018310629E-07</ixz>
+          <iyy>2.41277945490076E-05</iyy>
+          <iyz>1.34681573167481E-08</iyz>
+          <izz>4.14190887972257E-05</izz>
+        </inertia>
+      </inertial>
+      <visual name="lidar_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Assem1/meshes/lidar.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+      <sensor name="a1m8_lidar" type="gpu_lidar">
+        <always_on>true</always_on>
+        <visualize>false</visualize>
+        <update_rate>10</update_rate>
+        <topic>scan</topic>
+        <gz_frame_id>lidar</gz_frame_id>
+        <lidar>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1.0</resolution>
+              <min_angle>0.0</min_angle>
+              <max_angle>6.28319</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.4975</min>
+            <max>12.0</max>
+            <resolution>0.015</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </lidar>
+      </sensor>
+    </link>
+    <joint name="joint_8" type="fixed">
+      <parent>base_link</parent>
+      <child>lidar</child>
+      <pose relative_to="base_link">-0.015 0 0.2476 0 0 0</pose>
+    </joint>
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+      <left_joint>joint_5</left_joint>
+      <right_joint>joint_6</right_joint>
+      <wheel_separation>0.485</wheel_separation>
+      <wheel_radius>0.081</wheel_radius>
+      <max_linear_acceleration>1.0</max_linear_acceleration>
+      <topic>cmd_vel</topic>
+      <odom_topic>odom</odom_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_footprint</child_frame_id>
+      <odom_publisher_frequency>30</odom_publisher_frequency>
+      <tf_topic>/tf</tf_topic>
+    </plugin>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <topic>joint_states</topic>
+      <joint_name>joint_1</joint_name>
+      <joint_name>joint_2</joint_name>
+      <joint_name>joint_3</joint_name>
+      <joint_name>joint_4</joint_name>
+      <joint_name>joint_5</joint_name>
+      <joint_name>joint_6</joint_name>
+    </plugin>
+  </model>
+</sdf>

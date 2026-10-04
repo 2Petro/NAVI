@@ -1,0 +1,15 @@
+# colcon-generated (rebuild with: colcon build --symlink-install --merge-install)
+build/
+install/
+log/
+
+# python bytecode
+__pycache__/
+*.pyc
+
+# local backups / rollback copies (kept outside the repo)
+*.bak
+*.bak.*
+*.tuned
+*.preturn
+*.orig

@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Assem1">
+  <link
+    name="base_footprint">
+  </link>
+  <joint
+    name="base_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="base_link" />
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00394852938516854 -0.000160819719310812 0.3709959852658"
+        rpy="0 0 0" />
+      <mass
+        value="7.55759737832119" />
+      <inertia
+        ixx="0.28867511606062"
+        ixy="5.02467420121525E-07"
+        ixz="-0.000283218960134777"
+        iyy="0.253419125211149"
+        iyz="-3.78082210705268E-05"
+        izz="0.241390364467133" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="horizontal_rot1">
+    <inertial>
+      <origin
+        xyz="0.0264208443635311 0.0124915891690655 -0.000107994476847839"
+        rpy="0 0 0" />
+      <mass
+        value="0.0162856480579259" />
+      <inertia
+        ixx="1.00290661257103E-05"
+        ixy="1.09615959853757E-06"
+        ixz="-3.78426371869118E-08"
+        iyy="1.49482083733998E-05"
+        iyz="1.13941184793553E-08"
+        izz="1.35771578342545E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/horizontal_rot1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/horizontal_rot1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_1"
+    type="continuous">
+    <origin
+      xyz="0.263000000000041 0.327500000000013 0"
+      rpy="1.5707963267949 0 0.0108895782052523" />
+    <parent
+      link="base_link" />
+    <child
+      link="horizontal_rot1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="vertical_rot1">
+    <inertial>
+      <origin
+        xyz="2.48476485886773E-07 6.25177942747968E-09 -2.28169226930142E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0815187797240962" />
+      <inertia
+        ixx="4.139669944728E-05"
+        ixy="-3.24848216503477E-10"
+        ixz="-3.30888320342496E-07"
+        iyy="4.13967256950377E-05"
+        iyz="-2.81719206938079E-12"
+        izz="7.17776743131143E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/vertical_rot1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/vertical_rot1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_2"
+    type="continuous">
+    <origin
+      xyz="0.0399976283651571 -0.0154991056418489 0.000435574519475068"
+      rpy="-0.00329251097584394 0.000509658433723539 0.30714849802921" />
+    <parent
+      link="horizontal_rot1" />
+    <child
+      link="vertical_rot1" />
+    <axis
+      xyz="-0.0108893629868767 0 0.999940709129166" />
+    <limit
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="horizontal_rot2">
+    <inertial>
+      <origin
+        xyz="0.0264208441604578 0.0124915895050398 -0.00010799447906451"
+        rpy="0 0 0" />
+      <mass
+        value="0.0162856480579307" />
+      <inertia
+        ixx="1.00290643483525E-05"
+        ixy="1.09615777656577E-06"
+        ixz="-3.78426977819143E-08"
+        iyy="1.49482101518738E-05"
+        iyz="1.13941742785996E-08"
+        izz="1.357715783315E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/horizontal_rot2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/horizontal_rot2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_3"
+    type="continuous">
+    <origin
+      xyz="0.263000000000039 -0.327499999999989 0"
+      rpy="1.5707963267949 0 0.0108895782052523" />
+    <parent
+      link="base_link" />
+    <child
+      link="horizontal_rot2" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="vertical_rot2">
+    <inertial>
+      <origin
+        xyz="2.48476486053306E-07 6.25177931645737E-09 -2.28169226976771E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0815187797240945" />
+      <inertia
+        ixx="4.13966994472787E-05"
+        ixy="-3.24848216657637E-10"
+        ixz="-3.30888320342634E-07"
+        iyy="4.13967256950366E-05"
+        iyz="-2.81719129354493E-12"
+        izz="7.17776743131125E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/vertical_rot2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/vertical_rot2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_4"
+    type="continuous">
+    <origin
+      xyz="0.0399976283651666 -0.0154991056418602 0.000435574519475068"
+      rpy="0.0105532795412668 0.0135780609435402 -1.82019471011151" />
+    <parent
+      link="horizontal_rot2" />
+    <child
+      link="vertical_rot2" />
+    <axis
+      xyz="-0.0108893629868838 0 0.999940709129166" />
+    <limit
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="big_wheel1">
+    <inertial>
+      <origin
+        xyz="0.0801300104160427 1.17034645308323E-08 -5.93944290316895E-06"
+        rpy="0 0 0" />
+      <mass
+        value="1.31038895782748" />
+      <inertia
+        ixx="0.00378342151421735"
+        ixy="-2.4545216818955E-09"
+        ixz="-4.66768558802547E-07"
+        iyy="0.00241866329287584"
+        iyz="-9.10878970449176E-14"
+        izz="0.00241868842862518" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/big_wheel1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/big_wheel1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_5"
+    type="continuous">
+    <origin
+      xyz="-0.175000000000021 0.242500000000005 0.0244999999999986"
+      rpy="-0.0313100661629123 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="big_wheel1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="big_wheel2">
+    <inertial>
+      <origin
+        xyz="0.0801300408388053 7.25588511496511E-09 -5.93944346261033E-06"
+        rpy="0 0 0" />
+      <mass
+        value="1.31038883438627" />
+      <inertia
+        ixx="0.00378342386369556"
+        ixy="-8.07502729648011E-10"
+        ixz="-4.66768795581951E-07"
+        iyy="0.0024186622093406"
+        iyz="-5.64724048773835E-14"
+        izz="0.00241868734509006" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/big_wheel2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/big_wheel2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_6"
+    type="continuous">
+    <origin
+      xyz="-0.175000000000022 -0.242499999999995 0.0244999999999996"
+      rpy="0.056959309469116 0 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="big_wheel2" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="camera">
+    <inertial>
+      <origin
+        xyz="0.0115561554755023 1.1008713381111E-05 -0.000135954325541032"
+        rpy="0 0 0" />
+      <mass
+        value="0.0398923950503806" />
+      <inertia
+        ixx="2.63413640635645E-05"
+        ixy="-6.62466921778793E-09"
+        ixz="1.81971963264903E-08"
+        iyy="2.85032438177403E-06"
+        iyz="-1.55423031862008E-10"
+        izz="2.59721957527212E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_7"
+    type="fixed">
+    <origin
+      xyz="0.018 2.7435E-05 1.1908"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera" />
+  </joint>
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="0.0135567743230772 -0.00026272003152461 0.0021348835502677"
+        rpy="0 0 0" />
+      <mass
+        value="0.0730842405077276" />
+      <inertia
+        ixx="1.95788122710189E-05"
+        ixy="-6.2493554728148E-08"
+        ixz="-4.28327018310629E-07"
+        iyy="2.41277945490076E-05"
+        iyz="1.34681573167481E-08"
+        izz="4.14190887972257E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem1/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_8"
+    type="fixed">
+    <origin
+      xyz="-0.015 0 0.2476"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar" />
+  </joint>
+</robot>

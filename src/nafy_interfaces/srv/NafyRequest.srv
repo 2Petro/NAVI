@@ -1,0 +1,6 @@
+string doctor_id
+---
+bool success
+string message
+string state
+string queue_json

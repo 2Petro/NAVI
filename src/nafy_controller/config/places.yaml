@@ -1,0 +1,23 @@
+# NAFY PLACES - SLAM map origin [0,0,0] yaw 0 - home at origin, 3 offices along corridor facing +Y (yaw 1.5184)
+# 3 offices spread along corridor: left, center, right
+places:
+  home:
+    x: 0.0
+    y: 0.0
+    yaw: 0.0
+  office1:
+    x: -12.1751
+    y: 4.8504
+    yaw: 1.5184
+  office2:
+    x: -14.3809
+    y: 5.2972
+    yaw: 1.5184
+  office3:
+    x: -19.367
+    y: 6.4507
+    yaw: 1.5184
+  nav:
+    mock_mode: true
+    mock_duration_sec: 4.0
+    use_nav2: false
